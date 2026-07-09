@@ -267,7 +267,7 @@ export default function Home() {
               </div>
               <h3>oxDNA Simulation Suite</h3>
               <p>Run large-scale DNA and RNA coarse-grained simulations with reproducible inputs.</p>
-              <Link href="/data-tools/oxdna" className="btn btn-link">Open oxDNA</Link>
+              <a href="https://oxdna.org/" target="_blank" rel="noopener noreferrer" className="btn btn-link">Open oxDNA</a>
             </article>
             <article className="card">
               <div className="icon-row">

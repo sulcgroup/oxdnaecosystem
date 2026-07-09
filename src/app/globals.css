@@ -62,6 +62,12 @@ a {
   padding-bottom: 2.25rem;
 }
 
+.section-tight {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: -1.25rem;
+}
+
 .section-intro h1 {
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
@@ -351,12 +357,96 @@ a {
   text-decoration: underline;
 }
 
-.footer-bottom {
-  margin-top: 1.25rem;
-  border-top: 1px solid var(--color-outline);
-  padding-top: 0.9rem;
+.quick-links {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.75rem;
+}
+
+.quick-links-label {
+  font-weight: 600;
+}
+
+.quick-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+}
+
+.quick-links-list li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.quick-links-list a {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.quick-links-list a:hover {
+  color: var(--color-primary);
+}
+
+.tool-descriptions {
+  display: grid;
+  gap: 2.25rem;
+  max-width: 72ch;
+}
+
+.tool-descriptions article h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.tool-descriptions article p {
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.tool-descriptions article p:last-child {
+  margin-bottom: 0;
+}
+
+.tool-descriptions article ul {
+  margin: 0.5rem 0 1rem 1.25rem;
+  padding: 0;
+  color: var(--color-text-muted);
+  display: grid;
+  gap: 0.3rem;
+}
+
+.tool-descriptions article a {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.tool-descriptions article a:hover {
+  color: var(--color-primary);
+}
+
+.footer-grid p a {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.footer-grid p a:hover {
+  color: var(--color-primary);
+}
+
+.footer-copyright {
+  margin-top: 0.9rem;
   font-size: 0.86rem;
   color: var(--color-text-muted);
 }
@@ -690,7 +780,7 @@ a {
   }
 
   .footer-grid {
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
   }
 }
 
@@ -1192,6 +1282,12 @@ a {
    ============================ */
 
 .experiments-article {
+  max-width: 60rem;
+}
+
+/* Match the intro (title + breadcrumbs) to the article's centered width
+   so the header aligns with the prose block below it. Scoped to experiments only. */
+.experiments-shell-main .section-intro > .container {
   max-width: 60rem;
 }
 

@@ -16,12 +16,13 @@ export const navigation: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "Data & Tools",
+    href: "/data-tools",
     children: [
       { label: "Nanobase", href: "https://nanobase.org/", external: true },
-      { label: "Tacoxdna", href: "/data-tools/tacoxdna" },
+      { label: "Tacoxdna", href: "https://github.com/lorenzo-rovigatti/tacoxDNA", external: true },
       { label: "OxDNA", href: "https://oxdna.org/", external: true },
-      { label: "ppview", href: "/data-tools/ppview" },
-      { label: "cogli2", href: "/data-tools/cogli2" },
+      { label: "ppview", href: "https://github.com/zoombya/ppview", external: true },
+      { label: "cogli2", href: "https://sourceforge.net/projects/cogli1/", external: true },
     ],
   },
   { label: "Publications", href: "/about/publications" },

@@ -1,11 +1,6 @@
 import Link from "next/link";
 
 const footerLinks = {
-  resources: [
-    { label: "GitHub Organization", href: "https://github.com/" },
-    { label: "Publications", href: "/about/publications" },
-    { label: "http://oxdna.org", href: "http://oxdna.org" },
-  ],
   community: [
     { label: "Tutorials", href: "/tutorials" },
     { label: "Data & Tools", href: "/data-tools" },
@@ -19,27 +14,19 @@ export function SiteFooter() {
       <div className="container footer-grid">
         <section>
           <p className="footer-eyebrow">Funding</p>
-          <h2>Research support and acknowledgements</h2>
+          <h2>Acknowledgements</h2>
           <p>
-            The oxDNA ecosystem is maintained through collaborative academic grants and
-            open-source contributions from molecular programming researchers.
+            We gratefully acknowledge{" "}
+            <a
+              href="https://www.nsf.gov/awardsearch/show-award?AWD_ID=2346048"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              NSF POSE Grant #2346048
+            </a>
+            .
           </p>
-        </section>
-        <section>
-          <p className="footer-eyebrow">Resources</p>
-          <ul>
-            {footerLinks.resources.map((link) => (
-              <li key={link.label}>
-                {link.href.startsWith("/") ? (
-                  <Link href={link.href}>{link.label}</Link>
-                ) : (
-                  <a href={link.href} target="_blank" rel="noopener noreferrer">
-                    {link.label}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
+          <p className="footer-copyright">© {new Date().getFullYear()} oxDNA Ecosystem</p>
         </section>
         <section>
           <p className="footer-eyebrow">Community</p>
@@ -51,12 +38,6 @@ export function SiteFooter() {
             ))}
           </ul>
         </section>
-      </div>
-      <div className="container footer-bottom">
-        <p>© {new Date().getFullYear()} oxDNA Ecosystem</p>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
       </div>
     </footer>
   );

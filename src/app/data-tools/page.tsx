@@ -1,74 +1,148 @@
-import Link from "next/link";
-import Image from "next/image";
-import { DocIcon, ToolIcon } from "@/components/Icons";
 import { PageIntro } from "@/components/PageIntro";
-import { withBasePath } from "@/lib/asset-path";
 
-const tools = [
-  { label: "Nanobase", href: "/data-tools/nanobase" },
-  { label: "Tacoxdna", href: "/data-tools/tacoxdna" },
-  { label: "OxDNA", href: "/data-tools/oxdna" },
-  { label: "ppview", href: "/data-tools/ppview" },
-  { label: "cogli2", href: "/data-tools/cogli2" },
+const quickLinks = [
+  { label: "Nanobase", href: "https://nanobase.org/" },
+  { label: "OxDNA", href: "https://oxdna.org/" },
+  { label: "Tacoxdna", href: "https://github.com/lorenzo-rovigatti/tacoxDNA" },
+  { label: "ppview", href: "https://github.com/zoombya/ppview" },
+  { label: "cogli2", href: "https://sourceforge.net/projects/cogli1/" },
 ];
+
+const tacoxdnaFeatures = [
+  "Generator for twisted and knotted configurations",
+  "oxDNA-to-LAMMPS converter",
+  "LAMMPS-to-oxDNA converter",
+  "oxDNA-to-PDB converter",
+  "PDB-to-oxDNA converter",
+  "cadnano-to-oxDNA converter",
+  "CanDo-to-oxDNA converter",
+  "Tiamat-to-oxDNA converter",
+  "vHelix-to-oxDNA converter",
+  "rpoly-to-oxDNA converter",
+  "scadnano-to-oxDNA converter",
+];
+
+function ExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  );
+}
 
 export default function DataToolsPage() {
   return (
     <>
       <PageIntro
         title="Data & Tools"
-        description="Core simulation and analysis resources for DNA nanotechnology research workflows."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Data & Tools" }]}
       />
 
-      <section className="section">
-        <div className="container card-grid cols-3">
-          <article className="card">
-            <div className="icon-row">
-              <ToolIcon />
-              <span>Directory</span>
-            </div>
-            <h3>Data & Tools Directory</h3>
-            <p>Browse all current simulation and analysis resources from one index.</p>
-            <ul className="meta-list">
-              {tools.map((tool) => (
+      <section className="section section-tight">
+        <div className="container">
+          <div className="quick-links">
+            <span className="quick-links-label">Quick links:</span>
+            <ul className="quick-links-list">
+              {quickLinks.map((tool, index) => (
                 <li key={tool.label}>
-                  <strong>
-                    <Link href={tool.href}>{tool.label}</Link>
-                  </strong>
+                  <ExternalLink href={tool.href}>{tool.label}</ExternalLink>
+                  {index < quickLinks.length - 1 ? <span aria-hidden="true">,</span> : null}
                 </li>
               ))}
             </ul>
-          </article>
-          <article className="card">
-            <div className="icon-row">
-              <DocIcon />
-              <span>Documentation</span>
-            </div>
-            <h3>OxDNA Documentation</h3>
-            <p>Technical references for model assumptions, command-line usage, and workflows.</p>
-            <Link href="/tutorials/oxdna" className="btn btn-link">Open Documentation Hub</Link>
-          </article>
-          <article className="card">
-            <div className="icon-row">
-              <DocIcon />
-              <span>Official Site</span>
-            </div>
-            <h3>oxdna.org</h3>
-            <p>Visit the official website for project updates and external resources.</p>
-            <a href="http://oxdna.org" target="_blank" rel="noopener noreferrer" className="btn btn-link">Open http://oxdna.org</a>
-          </article>
+          </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container hero-media">
-          <Image
-            src={withBasePath("/references/downloads-tools.png")}
-            alt="Reference screenshot for downloads and tools layout"
-            width={1162}
-            height={768}
-          />
+        <div className="container">
+          <div className="tool-descriptions">
+          <article>
+            <h2 id="nanobase">Nanobase</h2>
+            <p>
+              Nanobase is a respository of DNA/RNA and protein nanostructures. It is a
+              public resource for the bionanotechnology community to share and reuse their
+              computational and experimental designs, with the goal of becoming
+              RCSB PDB-like database and encouraging more collaboration and reusability of
+              designs developed in our community.
+            </p>
+            <p>
+              Find the repository at{" "}
+              <ExternalLink href="https://nanobase.org/">https://nanobase.org/</ExternalLink>.
+            </p>
+          </article>
+
+          <article>
+            <h2 id="oxdna">OxDNA</h2>
+            <p>OxDNA.org is a cloud-based platform to run oxdna simulations.</p>
+            <p>
+              Find more information at{" "}
+              <ExternalLink href="https://oxdna.org/">https://oxdna.org/</ExternalLink>.
+            </p>
+          </article>
+
+          <article>
+            <h2 id="tacoxdna">Tacoxdna</h2>
+            <p>
+              tacoxDNA (Tools and Converters for oxDNA) is a collection of tools initially
+              developed to help oxDNA users. It was developed by Dr. Lorenzo Rovigatti,
+              used for seamless conversion between multiple file-types, including:
+            </p>
+            <ul>
+              {tacoxdnaFeatures.map((feature) => (
+                <li key={feature}>
+                  <strong>{feature}</strong>
+                </li>
+              ))}
+            </ul>
+            <p>
+              Find more information at{" "}
+              <ExternalLink href="https://github.com/lorenzo-rovigatti/tacoxDNA">
+                https://github.com/lorenzo-rovigatti/tacoxDNA
+              </ExternalLink>
+              .
+            </p>
+          </article>
+
+          <article>
+            <h2 id="ppview">ppview</h2>
+            <p>
+              PPView is a browser-based javascript app for visualizing patchy particle
+              systems. It was developed by Dr. Michael Matthies at Arizona State University
+              and Technical University of Munich.
+            </p>
+            <p>
+              Find more information at{" "}
+              <ExternalLink href="https://github.com/zoombya/ppview">
+                https://github.com/zoombya/ppview
+              </ExternalLink>
+              .
+            </p>
+            <p>
+              Access the tool at{" "}
+              <ExternalLink href="https://zoombya.github.io/ppview/">
+                https://zoombya.github.io/ppview/
+              </ExternalLink>
+              .
+            </p>
+          </article>
+
+          <article>
+            <h2 id="cogli2">cogli2</h2>
+            <p>
+              cogli2 is a simple program for visualizing trajectories of course-grained
+              simulations such as oxDNA or patchy particles. It was developed by
+              Dr. Lorenzo Rovigatti at Sapienza University of Rome.
+            </p>
+            <p>
+              Find more information at{" "}
+              <ExternalLink href="https://sourceforge.net/projects/cogli1/">
+                https://sourceforge.net/projects/cogli1/
+              </ExternalLink>
+              .
+            </p>
+          </article>
+          </div>
         </div>
       </section>
     </>
