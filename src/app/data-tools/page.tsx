@@ -74,7 +74,11 @@ export default function DataToolsPage() {
 
           <article>
             <h2 id="oxdna">OxDNA</h2>
-            <p>OxDNA.org is a cloud-based platform to run oxdna simulations.</p>
+            <p>OxDNA.org is a cloud-based platform to run oxdna simulations. Their goal is to facilitate
+               development of more advanced and complex designs in the fields of DNA and RNA nanotechnology 
+               by facilitating non-experts to run simple simulations. The simulations this server supports are 
+               equilibrium sampling of assembled designs, meant to assist users to test in silico their designs
+               before taking them to the lab.</p>
             <p>
               Find more information at{" "}
               <ExternalLink href="https://oxdna.org/">https://oxdna.org/</ExternalLink>.

@@ -1,13 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
-import { withBasePath } from "@/lib/asset-path";
-
-const events = [
-  "OxDNA release workshop at Molecular Programming Summit",
-  "Community sprint on analysis pipelines",
-  "Open tutorial session for early-career researchers",
-];
 
 const publications: { citation: string; title: string; paperUrl: string; arxivUrl?: string; bioRxivUrl?: string; dataUrl?: string; preprintsUrl?: string; chemRxivUrl?: string; researchSquareUrl?: string; medRxivUrl?: string; }[] = [
   { citation: "T. E. Ouldridge, A. A. Louis and J. P. K. Doye, Phys. Rev. Lett. 104, 178101 (2010)", title: "DNA Nanotweezers Studied with a Coarse-Grained Model of DNA", paperUrl: "http://prl.aps.org/abstract/PRL/v104/i17/e178101", arxivUrl: "http://arxiv.org/abs/0911.0555" },
@@ -319,7 +310,7 @@ const publications: { citation: string; title: string; paperUrl: string; arxivUr
   { citation: "E.J. Ratajczyk, J. Bath, P. Sulc, J.P.K. Doye, A.A. Louis, A.J. Turberfield, submitted", title: "Controlling DNA-RNA strand displacement kinetics with base distribution", paperUrl: "https://doi.org/10.1101/2024.08.06.606789" },
   { citation: "A. Suma and C. Micheletti, QRB Discovery 6, e4 (2025)", title: "Unzipping of knotted DNA via nanopore translocation", paperUrl: "https://doi.org/10.1017/qrd.2024.26", arxivUrl: "https://doi.org/10.48550/arXiv.2407.11567" },
   { citation: "G. Mattiotti, M. Micheloni, L. Petrolli, L. Rovigatti, L. Tubiana, S. Pasquali, R. Potestio, Macromol. Rapid Commun. 45, 2400639 (2024).", title: "Molecular dynamics characterization of the free and encapsidated RNA2 of CCMV with the oxRNA model", paperUrl: "https://doi.org/10.1002/marc.202400639", arxivUrl: "https://doi.org/10.48550/arXiv.2408.03662" },
-  { citation: "S. Haggenmueller, M. Matthies, M. Sample and P. Šulc, Discover Nano 20, 13 (2025)", title: "How we simulate DNA origami", paperUrl: "https://doi.org/10.1186/s11671-025-04188-9", arxivUrl: "https://doi.org/10.48550/arXiv.2409.13206" },
+  { citation: "S. Haggenmueller, M. Matthies, M. Sample and P. Šulc, Discover Nano 20, 13 (2025)", title: "How we simulate DNA origami", paperUrl: "https://doi.org/10.1002/smtd.202401526", arxivUrl: "https://doi.org/10.48550/arXiv.2409.13206" },
   { citation: "Y. Guo, T. Xiong, H. Yan and R.X. Zhang, Discover Nano 20, 13 (2025)", title: "Correlation of precisely fabricated geometric characteristics of DNA-origami nanostructures with their cellular entry in human lens epithelial cells", paperUrl: "https://doi.org/10.1186/s11671-025-04188-9", researchSquareUrl: "https://doi.org/10.21203/rs.3.rs-4897446/v1" },
   { citation: "M.O. Ogieva, W.G. Pfeifer and S. Sensale, Sci Rep 15, 9450 (2025)", title: "Enhancing the speed of DNA walkers through soft confinement", paperUrl: "https://doi.org/10.1038/s41598-025-93269-x" },
   { citation: "Y. Ochi, W. Kato, Y. Tsutsui, Y. Gomibuchi, D. Tominaga, K. Sakai, T. Araki, S. Yoshitake, T. Yasunaga, Y.V. Morimoto, K. Maeda, J. Taira, Y. Sato, ChemBioChem, accepted (2025)", title: "Wireframe DNA Origami Capable of Vertex-protruding Transformation", paperUrl: "https://doi.org/10.1002/cbic.202401071" },
@@ -337,7 +328,6 @@ export default function PublicationsPage() {
         description="Peer-reviewed research outputs, software papers, and scientific updates from the oxDNA ecosystem."
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "About", href: "/about/about-us" },
           { label: "Publications" },
         ]}
       />
@@ -395,30 +385,6 @@ export default function PublicationsPage() {
             We are also maintaining a list of all published papers using oxDNA at{" "}
             <a href="https://publons.com/researcher/3051012/oxdna-oxrna/" target="_blank" rel="noopener noreferrer">publons</a>.
           </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container split">
-          <div className="card">
-            <p className="eyebrow">News &amp; Events</p>
-            <ul className="meta-list">
-              {events.map((event) => (
-                <li key={event}>
-                  <strong>{event}</strong>
-                  <span>Details and schedules are maintained through the publications and project updates channels.</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="hero-media">
-            <Image
-              src={withBasePath("/references/publications.png")}
-              alt="Reference screenshot for publications layout"
-              width={1162}
-              height={768}
-            />
-          </div>
         </div>
       </section>
     </>

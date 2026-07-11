@@ -130,7 +130,7 @@ export default function Home() {
               guidance in one coherent research portal.
             </p>
             <div className="button-row" style={{ marginTop: "1.4rem" }}>
-              <Link href="/about/publications" className="btn btn-cta">
+              <Link href="/publications" className="btn btn-cta">
                 View Publications
               </Link>
               <Link href="/data-tools" className="btn btn-primary">
@@ -285,7 +285,7 @@ export default function Home() {
               </div>
               <h3>Publications and Citations</h3>
               <p>Review papers, software citations, and reproducibility references for oxDNA research.</p>
-              <Link href="/about/publications" className="btn btn-link">Open Publications</Link>
+              <Link href="/publications" className="btn btn-link">Open Publications</Link>
             </article>
           </div>
         </div>

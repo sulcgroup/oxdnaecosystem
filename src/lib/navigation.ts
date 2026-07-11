@@ -18,6 +18,7 @@ export const navigation: NavItem[] = [
     label: "Data & Tools",
     href: "/data-tools",
     children: [
+      { label: "Info", href: "/data-tools" },
       { label: "Nanobase", href: "https://nanobase.org/", external: true },
       { label: "Tacoxdna", href: "https://github.com/lorenzo-rovigatti/tacoxDNA", external: true },
       { label: "OxDNA", href: "https://oxdna.org/", external: true },
@@ -25,7 +26,7 @@ export const navigation: NavItem[] = [
       { label: "cogli2", href: "https://sourceforge.net/projects/cogli1/", external: true },
     ],
   },
-  { label: "Publications", href: "/about/publications" },
+  { label: "Publications", href: "/publications" },
   {
     label: "Experiments",
     href: "/experiments",
@@ -112,19 +113,14 @@ export const navigation: NavItem[] = [
       { label: "Megan Engel", href: "/members/megan-engel" },
     ],
   },
-  {
-    label: "About",
-    children: [
-      { label: "About Us", href: "/about/about-us" },
-      { label: "Funding", href: "/about/funding" },
-    ],
-  },
+  { label: "About", href: "/about" },
   {
     label: "Tutorials",
     children: [
-      { label: "OxDNA to Documentation", href: "/tutorials/oxdna" },
-      { label: "OxView (YouTube)", href: "/tutorials/oxview" },
-      { label: "How We Simulate DNA Origami", href: "/tutorials/how-we-simulate-dna-origami" },
+      { label: "List of tutorials", href: "/tutorials/list-of-tutorials" },
+      { label: "OxDNA Documentation", href: "https://dna.physics.ox.ac.uk/index.php?title=Main_Page", external: true },
+      { label: "YouTube tutorials", href: "https://www.youtube.com/@oxdnatutorials1969/videos", external: true },
+      { label: "How We Simulate Origami", href: "https://doi.org/10.1002/smtd.202401526", external: true },
     ],
   },
 ];
