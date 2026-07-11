@@ -1837,6 +1837,76 @@ html {
 
 
 /* ============================
+   About page section headings and reference list
+   ============================ */
+
+.about-section-heading {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  scroll-margin-top: 6rem;
+}
+
+.about-section-heading:first-of-type {
+  margin-top: 0.25rem;
+}
+
+.about-section-lede {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  max-width: 70ch;
+  margin-bottom: 1.5rem;
+}
+
+.about-section-lede a {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.about-section-lede a:hover {
+  color: var(--color-primary);
+}
+
+.timeline-ref {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  vertical-align: 0.05em;
+}
+
+.timeline-ref::before {
+  content: "[";
+  margin-right: 1px;
+}
+
+.timeline-ref::after {
+  content: "]";
+  margin-left: 1px;
+}
+
+.timeline-ref:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.about-references {
+  scroll-margin-top: 6rem;
+}
+
+.about-references > li {
+  scroll-margin-top: 6rem;
+}
+
+
+/* ============================
    List of tutorials
    ============================ */
 
