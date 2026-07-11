@@ -16,7 +16,7 @@ export function SiteFooter() {
           <p className="footer-eyebrow">Funding</p>
           <h2>Acknowledgements</h2>
           <p>
-            We gratefully acknowledge{" "}
+            This project was funded by{" "}
             <a
               href="https://www.nsf.gov/awardsearch/show-award?AWD_ID=2346048"
               target="_blank"
