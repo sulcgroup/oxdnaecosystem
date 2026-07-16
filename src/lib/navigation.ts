@@ -44,7 +44,7 @@ export const navigation: NavItem[] = [
         ],
       },
       {
-        label: "—name—",
+        label: "Design",
         children: [
           { label: "Origami Size", href: "/experiments/design-considerations/origami-size" },
           { label: "Rigid vs Flexible", href: "/experiments/design-considerations/rigid-vs-flexible" },
@@ -73,7 +73,7 @@ export const navigation: NavItem[] = [
         ],
       },
       {
-        label: "—name—",
+        label: "Synthesis",
         children: [
           { label: "Thermal Annealing Ramp", href: "/experiments/synthesis-variables/thermal-annealing-ramp" },
           { label: "Buffer Salt Concentrations", href: "/experiments/synthesis-variables/buffer-salt-concentrations" },
@@ -81,7 +81,7 @@ export const navigation: NavItem[] = [
         ],
       },
       {
-        label: "—name—",
+        label: "Purification",
         children: [
           { label: "PAGE", href: "/experiments/purification/page" },
           { label: "AGE", href: "/experiments/purification/age" },

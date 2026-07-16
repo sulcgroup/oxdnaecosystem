@@ -168,7 +168,7 @@ export const experimentsGroups: ExperimentGroup[] = [
   },
   {
     slug: "design-considerations",
-    label: "—name—",
+    label: "Design",
     leaves: [
       {
         slug: "origami-size",
@@ -483,7 +483,7 @@ export const experimentsGroups: ExperimentGroup[] = [
   },
   {
     slug: "synthesis-variables",
-    label: "—name—",
+    label: "Synthesis",
     leaves: [
       {
         slug: "thermal-annealing-ramp",
@@ -547,7 +547,7 @@ export const experimentsGroups: ExperimentGroup[] = [
   },
   {
     slug: "purification",
-    label: "—name—",
+    label: "Purification",
     leaves: [
       {
         slug: "page",
