@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DocIcon, ToolIcon } from "@/components/Icons";
+import { DocIcon, ToolIcon, ToolsIcon } from "@/components/Icons";
 import { HomePrimerRail } from "@/components/HomePrimerRail";
 import { OxViewEmbed } from "@/components/OxViewEmbed";
 
@@ -271,7 +271,7 @@ export default function Home() {
             </article>
             <article className="card">
               <div className="icon-row">
-                <DocIcon />
+                <ToolsIcon />
                 <span>Tools</span>
               </div>
               <h3>Data & Tools Directory</h3>
