@@ -337,8 +337,10 @@ export default function PublicationsPage() {
           <ol className="pub-list">
             {publications.map((pub, idx) => (
               <li key={idx} className="pub-item">
-                <div className="pub-citation">{pub.citation}</div>
-                <div className="pub-links">
+                <span className="pub-number">{idx + 1}.</span>
+                <div>
+                  <div className="pub-citation">{pub.citation}</div>
+                  <div className="pub-links">
                   <a href={pub.paperUrl} target="_blank" rel="noopener noreferrer">
                     {pub.title}
                   </a>
@@ -377,6 +379,7 @@ export default function PublicationsPage() {
                       {" "}(<a href={pub.medRxivUrl} target="_blank" rel="noopener noreferrer">medRxiv</a>)
                     </>
                   ) : null}
+                  </div>
                 </div>
               </li>
             ))}

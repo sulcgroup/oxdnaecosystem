@@ -480,6 +480,16 @@ a {
   margin-bottom: 1rem;
 }
 
+.card a {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.card a:hover {
+  text-decoration-thickness: 2px;
+}
+
 .icon-row {
   display: inline-flex;
   align-items: center;
@@ -615,8 +625,9 @@ a {
 }
 
 .pub-list {
-  list-style: decimal;
-  margin-left: 1.4rem;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
   display: grid;
   gap: 0.85rem;
   color: var(--color-text);
@@ -625,12 +636,17 @@ a {
 }
 
 .pub-list > li {
-  padding-left: 0.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.6rem;
 }
 
-.pub-list > li::marker {
+.pub-number {
   font-weight: 600;
   color: var(--color-text-muted);
+  min-width: 2.5ch;
+  text-align: right;
+  user-select: text;
 }
 
 .pub-citation {

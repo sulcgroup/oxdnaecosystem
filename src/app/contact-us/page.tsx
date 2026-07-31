@@ -12,15 +12,15 @@ export default function ContactUsPage() {
         <div className="container card-grid">
           <article className="card">
             <h3>General Inquiries</h3>
-            <p>research@oxeco.example</p>
+            <p>oxdna.donotreply@gmail.com</p>
           </article>
           <article className="card">
             <h3>Technical Support</h3>
-            <p>support@oxeco.example</p>
+            <p>oxdna.donotreply@gmail.com</p>
           </article>
           <article className="card">
             <h3>Collaboration Requests</h3>
-            <p>collab@oxeco.example</p>
+            <p>oxdna.donotreply@gmail.com</p>
           </article>
         </div>
       </section>
