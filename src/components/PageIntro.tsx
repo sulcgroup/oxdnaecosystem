@@ -12,7 +12,11 @@ export function PageIntro({ title, description, breadcrumbs }: PageIntroProps) {
       <div className="container">
         {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
         <h1>{title}</h1>
-        {description ? <p>{description}</p> : null}
+        {description
+          ? description
+              .split(/\n{2,}/)
+              .map((paragraph, index) => <p key={index}>{paragraph}</p>)
+          : null}
       </div>
     </section>
   );
