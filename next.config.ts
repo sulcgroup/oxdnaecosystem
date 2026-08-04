@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_ACTIONS === "true";
-const repo = "OxEco"; // your repo name
-const basePath = isGithubPages ? `/${repo}` : "";
+const repo = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const isUserSite = repo.endsWith(".github.io");
+const basePath = isGithubPages && repo && !isUserSite ? `/${repo}` : "";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -10,9 +11,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   basePath,
-  assetPrefix: isGithubPages ? `/${repo}/` : "",
-  // Expose the basePath to client/server code so we can prefix public-folder
-  // asset URLs (next/image does not auto-prepend basePath the way next/link does).
+  assetPrefix: basePath ? `${basePath}/` : "",
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
