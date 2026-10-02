@@ -731,22 +731,21 @@ a {
   margin-top: 1.4rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.4rem;
+  gap: 0.72rem 1.4rem;
 }
 
-.primer-procon-list {
-  list-style: none;
-  display: grid;
-  gap: 0.72rem;
-  margin-top: 0.8rem;
+.primer-compare-header {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
 }
 
-.primer-procon-list li {
+.primer-procon-cell {
   border-left: 2px solid var(--color-outline);
   padding-left: 0.75rem;
 }
 
-.primer-procon-list strong {
+.primer-procon-cell strong {
   display: block;
   color: var(--color-primary-strong);
   font-size: 0.86rem;
@@ -755,7 +754,7 @@ a {
   margin-bottom: 0.12rem;
 }
 
-.primer-procon-list span {
+.primer-procon-cell span {
   color: var(--color-text-muted);
   font-size: 0.95rem;
 }
@@ -1919,6 +1918,30 @@ html {
 }
 
 .about-references > li {
+  display: block;
+  scroll-margin-top: 6rem;
+}
+
+.home-ref {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+  text-decoration: none;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.home-ref:hover {
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
+.home-references {
+  scroll-margin-top: 6rem;
+}
+
+.home-references > li {
+  display: block;
   scroll-margin-top: 6rem;
 }
 

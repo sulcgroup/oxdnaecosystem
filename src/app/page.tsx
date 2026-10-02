@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { DocIcon, ToolIcon, ToolsIcon } from "@/components/Icons";
 import { HomePrimerRail } from "@/components/HomePrimerRail";
@@ -11,17 +12,17 @@ const allAtomTradeoffs = [
   },
   {
     stance: "Pro",
-    detail: "Force fields are highly generalized for proteins, lipids, and diverse molecules.",
+    detail: "Depending on the choice of force fields, these models can be generalized for proteins, lipids, and other systems.",
+  },
+  {
+    stance: "Pro",
+    detail:
+      "Can capture external forces and constraints more accurately than coarse-grained models."
   },
   {
     stance: "Con",
     detail:
-      "Computationally extremely expensive, limiting simulations to small systems and very short timescales (usually microseconds at best).",
-  },
-  {
-    stance: "Con",
-    detail:
-      "Cannot easily simulate the assembly or large-scale mechanical deformation of large nanostructures like DNA origami.",
+      "Computationally very expensive, limiting simulations to small systems and much shorter timescales.",
   },
 ];
 
@@ -29,27 +30,22 @@ const coarseGrainedTradeoffs = [
   {
     stance: "Pro",
     detail:
-      "Computationally highly efficient, allowing the simulation of millions of nucleotides over much longer timescales.",
+      "Much faster computationally than an all-atom simulation, allowing for larger systems and longer timescales to be simulated.",
   },
   {
     stance: "Pro",
     detail:
-      "Perfectly captures the thermodynamics of hybridization, mechanical properties (like persistence length), and large-scale structural transitions.",
-  },
-  {
-    stance: "Pro",
-    detail:
-      "Can easily incorporate external forces to simulate optical tweezers, atomic force microscopy, or spatial confinement.",
+      "With the right force field model, captures thermodynamics and mechanics very well."
   },
   {
     stance: "Con",
     detail:
-      "Atomistic resolution is lost; you cannot track individual atoms, backbone dihedral angles, or explicit water molecules.",
+      "Interaction potentials are limited, and cannot capture the full chemical diversity of nucleic acids, proteins, or small molecules.",
   },
   {
     stance: "Con",
     detail:
-      "Relies on parameterized force fields tuned for DNA and RNA, and cannot natively simulate arbitrary proteins or complex small-molecule drugs without extensive modification.",
+      "Force fields are parameterized for nucleic acids, and thus, cannot natively simulate arbitrary proteins or complex small-molecule systems (without modifications and validations).",
   },
 ];
 
@@ -57,22 +53,22 @@ const modelIngredients = [
   {
     title: "Configuration File",
     detail:
-      "A description of the physical geometry, containing the 3D positions, velocities, and angular orientations of every nucleotide in the system.",
+      "A description of the physical geometry, containing the 3D positions, velocities, and angular orientations of every nucleotide in the system. As an example, here's a simple conf file of an RNA 8-mer duplex: init.conf (https://github.com/lorenzo-rovigatti/oxDNA/blob/master/examples/RNA_DUPLEX_MELT/init.conf)zx",
   },
   {
     title: "Topology File",
     detail:
-      "A description of the chemical sequence and connectivity, detailing what nucleotides are present, their bases (A, T, G, C, U), and which nucleotides are covalently bonded to each other.",
+      "A description of the chemical sequence and connectivity, detailing what nucleotides are present, their bases (A, T, G, C, U), and which nucleotides are covalently bonded to each other. Following the same example, here's a simple top file of the same RNA 8-mer duplex: https://github.com/lorenzo-rovigatti/oxDNA/blob/master/examples/RNA_DUPLEX_MELT/sim.top",
   },
   {
     title: "Input File",
     detail:
-      "Simulation parameters such as temperature, salt concentration, number of steps, and whether to use MD or MC methods.",
+      "Simulation parameters such as temperature, salt concentration, number of steps, and whether to use MD or MC methods. Here's the example of an input file to study the properties of the RNA 8-mer duplex: https://github.com/lorenzo-rovigatti/oxDNA/blob/master/examples/RNA_DUPLEX_MELT/input",
   },
   {
     title: "Observables",
     detail:
-      "A list of different physical quantities the code should return at the end of simulation. If you do not request observables, you only get the default trajectory. You can explicitly request outputs like hydrogen-bonding energy, distance between particles, or coaxial-stacking quantities, and most of these can also be analyzed post-simulation.",
+      "A list of different physical quantities the code should return at the end of simulation. If you do not request observables, you only get the default trajectory. You can explicitly request outputs like hydrogen-bonding energy, distance between particles, or coaxial-stacking quantities, and most of these can also be analyzed post-simulation. This README calculates the melting temperatures based on the extrapolations to a series of temperatures: https://github.com/lorenzo-rovigatti/oxDNA/blob/master/examples/RNA_DUPLEX_MELT/README",
   },
 ];
 
@@ -152,7 +148,8 @@ export default function Home() {
             <p>
               In a nutshell, oxDNA is a simulation code that models nucleic acid behavior
               (DNA and RNA) at a coarse-grained level. The original model was introduced by
-              T. E. Ouldridge, J. P. K. Doye, and A. A. Louis, and has evolved into an
+              T. E. Ouldridge, J. P. K. Doye, and A. A. Louis{" "}
+              <a className="home-ref" href="#home-ref-3">[3]</a>, and has evolved into an
               extensible simulation and analysis framework supporting oxDNA1, oxDNA2, oxRNA,
               and oxNA force fields.
             </p>
@@ -171,28 +168,20 @@ export default function Home() {
             </p>
 
             <div className="primer-compare" aria-label="All-atom and coarse-grained comparison">
-              <section>
-                <h4>All-Atom Models: Pros and Cons</h4>
-                <ul className="primer-procon-list">
-                  {allAtomTradeoffs.map((item) => (
-                    <li key={item.detail}>
-                      <strong>{item.stance}</strong>
-                      <span>{item.detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-              <section>
-                <h4>Coarse-Grained Models (oxDNA): Pros and Cons</h4>
-                <ul className="primer-procon-list">
-                  {coarseGrainedTradeoffs.map((item) => (
-                    <li key={item.detail}>
-                      <strong>{item.stance}</strong>
-                      <span>{item.detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
+              <h4 className="primer-compare-header">All-Atom Models: Pros and Cons</h4>
+              <h4 className="primer-compare-header">Coarse-Grained Models (oxDNA): Pros and Cons</h4>
+              {allAtomTradeoffs.map((item, i) => (
+                <React.Fragment key={i}>
+                  <div className="primer-procon-cell">
+                    <strong>{item.stance}</strong>
+                    <span>{item.detail}</span>
+                  </div>
+                  <div className="primer-procon-cell">
+                    <strong>{coarseGrainedTradeoffs[i].stance}</strong>
+                    <span>{coarseGrainedTradeoffs[i].detail}</span>
+                  </div>
+                </React.Fragment>
+              ))}
             </div>
 
             <h3 id="how-does-it-work" className="primer-anchor">How does it work?</h3>
@@ -288,6 +277,25 @@ export default function Home() {
               <Link href="/publications" className="btn btn-link">Open Publications</Link>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <h2 className="about-section-heading" id="references">References</h2>
+          <ol className="pub-list home-references">
+            <li id="home-ref-3" value={3} className="pub-item">
+              <span className="pub-number">3.</span>
+              <span className="pub-citation">T. E. Ouldridge, A. A. Louis and J. P. K. Doye, J. Chem. Phys, 134, 085101 (2011)</span>
+              {" — "}
+              <span className="pub-links">
+                <a href="http://aip.scitation.org/doi/abs/10.1063/1.3552946?journalCode=jcp" target="_blank" rel="noopener noreferrer">
+                  Structural, mechanical and thermodynamic properties of a coarse-grained DNA model
+                </a>
+                {" "}(<a href="http://arxiv.org/abs/arXiv:1009.4480" target="_blank" rel="noopener noreferrer">arXiv</a>)
+              </span>
+            </li>
+          </ol>
         </div>
       </section>
     </div>

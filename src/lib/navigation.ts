@@ -109,7 +109,7 @@ export const navigation: NavItem[] = [
       { label: "Grigory Tikhomirov", href: "/members/grigory-tikhomirov" },
       { label: "Lorenzo Rovigatti", href: "/members/lorenzo-rovigatti" },
       { label: "Tom Ouldridge", href: "/members/tom-ouldridge" },
-      { label: "Carlos Castros", href: "/members/carlos-castros" },
+      { label: "Carlos Castro", href: "/members/carlos-castro" },
       { label: "Megan Engel", href: "/members/megan-engel" },
     ],
   },

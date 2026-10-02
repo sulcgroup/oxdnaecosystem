@@ -37,14 +37,14 @@ const releaseMilestones: TimelineEntry[] = [
   {
     ref: 139,
     date: "2021",
-    title: "oxDNA.org & OAT",
-    body: "A public webserver for coarse-grained simulations of DNA and RNA nanostructures, together with the OxDNA Analysis Tool (OAT).",
+    title: "oxDNA.org",
+    body: "A public webserver for coarse-grained simulations of DNA and RNA nanostructures.",
   },
   {
     ref: 103,
     date: "2020",
-    title: "oxView",
-    body: "Interactive browser-based visualisation, editing and simulation of large DNA and RNA nanostructures.",
+    title: "oxView & OAT",
+    body: "Interactive browser-based visualisation, editing and simulation of large DNA and RNA nanostructures, together with the OxDNA Analysis Tool (OAT).",
   },
   {
     ref: 93,
@@ -185,7 +185,7 @@ export default function AboutPage() {
                       href={`#about-ref-${entry.ref}`}
                       aria-label={`See reference ${entry.ref} for ${entry.title}`}
                     >
-                      [{entry.ref}]
+                      {entry.ref}
                     </a>
                   </h3>
                   <p className="timeline-body">{entry.body}</p>
@@ -209,47 +209,35 @@ export default function AboutPage() {
                 value={ref.ref}
                 className="pub-item"
               >
-                <div className="pub-citation">{ref.citation}</div>
-                <div className="pub-links">
+                <span className="pub-number">{ref.ref}.</span>
+                <span className="pub-citation">{ref.citation}</span>
+                {" — "}
+                <span className="pub-links">
                   <a href={ref.paperUrl} target="_blank" rel="noopener noreferrer">
                     {ref.title}
                   </a>
                   {ref.arxivUrl ? (
-                    <>
-                      {" "}(<a href={ref.arxivUrl} target="_blank" rel="noopener noreferrer">arXiv</a>)
-                    </>
+                    <>{" "}(<a href={ref.arxivUrl} target="_blank" rel="noopener noreferrer">arXiv</a>)</>
                   ) : null}
                   {ref.bioRxivUrl ? (
-                    <>
-                      {" "}(<a href={ref.bioRxivUrl} target="_blank" rel="noopener noreferrer">bioRxiv</a>)
-                    </>
+                    <>{" "}(<a href={ref.bioRxivUrl} target="_blank" rel="noopener noreferrer">bioRxiv</a>)</>
                   ) : null}
                   {ref.dataUrl ? (
-                    <>
-                      {" "}(<a href={ref.dataUrl} target="_blank" rel="noopener noreferrer">data</a>)
-                    </>
+                    <>{" "}(<a href={ref.dataUrl} target="_blank" rel="noopener noreferrer">data</a>)</>
                   ) : null}
                   {ref.preprintsUrl ? (
-                    <>
-                      {" "}(<a href={ref.preprintsUrl} target="_blank" rel="noopener noreferrer">preprints</a>)
-                    </>
+                    <>{" "}(<a href={ref.preprintsUrl} target="_blank" rel="noopener noreferrer">preprints</a>)</>
                   ) : null}
                   {ref.chemRxivUrl ? (
-                    <>
-                      {" "}(<a href={ref.chemRxivUrl} target="_blank" rel="noopener noreferrer">ChemRxiv</a>)
-                    </>
+                    <>{" "}(<a href={ref.chemRxivUrl} target="_blank" rel="noopener noreferrer">ChemRxiv</a>)</>
                   ) : null}
                   {ref.researchSquareUrl ? (
-                    <>
-                      {" "}(<a href={ref.researchSquareUrl} target="_blank" rel="noopener noreferrer">Research Square</a>)
-                    </>
+                    <>{" "}(<a href={ref.researchSquareUrl} target="_blank" rel="noopener noreferrer">Research Square</a>)</>
                   ) : null}
                   {ref.medRxivUrl ? (
-                    <>
-                      {" "}(<a href={ref.medRxivUrl} target="_blank" rel="noopener noreferrer">medRxiv</a>)
-                    </>
+                    <>{" "}(<a href={ref.medRxivUrl} target="_blank" rel="noopener noreferrer">medRxiv</a>)</>
                   ) : null}
-                </div>
+                </span>
               </li>
             ))}
           </ol>
